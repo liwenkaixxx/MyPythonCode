@@ -1,0 +1,12 @@
+import os
+
+if __name__ == '__main__':
+    print 'current process (%s) start ...'%(os.getpid())
+    pid = os.fork()
+    if pid < 0:
+        print 'erro in fork'
+    elif pid == 0:
+        print 'i an child process %s and my parent process is %s...'%(os.getpid(),os.getppid())
+    else:
+        print 'i (%s) created a chlid process %s ...'%(os.getpid(),pid)
+
